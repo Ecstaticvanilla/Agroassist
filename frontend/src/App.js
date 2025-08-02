@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Weather from './pages/Weather';
 import Irrigation from './pages/Irrigation';
-import Updates from './pages/Updates';
 import Welcome from './pages/Welcome';
 import Dashboard from './pages/Dashboard';
+import MyFarms from './pages/MyFarms';
 
 const App = () => {
   return (
@@ -15,7 +15,7 @@ const App = () => {
         {/* Dummy route for under development feature */}
         <Route path="/weather" element={<Weather />} />
         <Route path="/irrigation" element={<Irrigation />} />
-        <Route path="/updates" element={<Updates />} />
+        <Route path="/myfarms" element={<MyFarms />} />
         <Route path="/" element={<Welcome />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>

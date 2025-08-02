@@ -14,10 +14,10 @@ const Dashboard = () => {
         {/* Feature Cards */}
         <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6">
           <Card
-            title="Smart Farming"
-            description="Optimize your yield with smart insights."
+            title="My Farms"
+            description="Manage all your current farms."
             imageSrc="https://picsum.photos/400/200?random=1"
-            link="/feature/smart-farming"
+            link="/myfarms"
           />
           <Card
             title="Crop Monitoring"
