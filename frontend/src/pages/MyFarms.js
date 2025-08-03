@@ -62,7 +62,6 @@ const MyFarms = () => {
 
       <div className="max-w-7xl mx-auto mt-20 px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-green-700 dark:text-green-300">My Farms</h1>
           <button
             onClick={() => {
               setEditingFarm(null);

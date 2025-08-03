@@ -29,7 +29,7 @@ const Dashboard = () => {
             title="Weather Forecast"
             description="Plan with precision using weather data."
             imageSrc="https://picsum.photos/400/200?random=3"
-            link="/feature/weather"
+            link="/weather"
           />
         </div>
 
@@ -41,6 +41,9 @@ const Dashboard = () => {
               Latest News
             </div>
             <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 text-sm">
+              <li>AI-based pest prediction launched</li>
+              <li>New irrigation guidelines released</li>
+              <li>Government subsidy extended to 2026</li>
               <li>AI-based pest prediction launched</li>
               <li>New irrigation guidelines released</li>
               <li>Government subsidy extended to 2026</li>
