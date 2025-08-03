@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
 import Navbar from '../components/Navbar';
-import { FiPlus, FiEdit, FiTrash2, FiX, FiAlertTriangle } from 'react-icons/fi';
+import { FiPlus, FiX, FiAlertTriangle } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 const MyFarms = () => {
@@ -24,7 +24,6 @@ const MyFarms = () => {
 
   const [farmToDelete, setFarmToDelete] = useState(null);
   const [showAddDialog, setShowAddDialog] = useState(false);
-  const [editingFarm, setEditingFarm] = useState(null);
   const [newFarm, setNewFarm] = useState({
     name: '',
     location: '',
@@ -45,17 +44,12 @@ const MyFarms = () => {
       return;
     }
 
-    if (editingFarm) {
-      setFarms(farms.map(f => (f.id === editingFarm.id ? { ...editingFarm, ...newFarm } : f)));
-    } else {
-      const newId = Math.max(...farms.map((f) => f.id), 0) + 1;
-      setFarms([...farms, { id: newId, ...newFarm }]);
-    }
-
+    const newId = Math.max(...farms.map((f) => f.id), 0) + 1;
+    setFarms([...farms, { id: newId, ...newFarm }]);
     setShowAddDialog(false);
-    setEditingFarm(null);
     setNewFarm({ name: '', location: '', size: '', image: '' });
   };
+
   return (
     <Layout>
       <Navbar pageTitle="My Farms" />
@@ -64,7 +58,6 @@ const MyFarms = () => {
         <div className="flex justify-between items-center mb-8">
           <button
             onClick={() => {
-              setEditingFarm(null);
               setNewFarm({ name: '', location: '', size: '', image: '' });
               setShowAddDialog(true);
             }}
@@ -96,54 +89,23 @@ const MyFarms = () => {
                   <h2 className="mt-3 text-xl font-semibold text-green-800 dark:text-green-300">{farm.name}</h2>
                   <p className="text-gray-600 text-sm dark:text-gray-400">📍{farm.location}</p>
                   <p className="text-gray-600 text-sm dark:text-gray-400">🌾{farm.size}</p>
-
-                  <div className="mt-4 flex gap-3">
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setEditingFarm(farm);
-                        setNewFarm({
-                          name: farm.name,
-                          location: farm.location,
-                          size: farm.size,
-                          image: farm.image,
-                        });
-                        setShowAddDialog(true);
-                      }}
-                      className="flex items-center gap-1 text-blue-600 hover:text-blue-800 text-sm"
-                    >
-                      <FiEdit />
-                      Edit
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setFarmToDelete(farm);
-                      }}
-                      className="flex items-center gap-1 text-red-600 hover:text-red-800 text-sm"
-                    >
-                      <FiTrash2 />
-                      Delete
-                    </button>
-                  </div>
                 </div>
               </Link>
             ))}
           </div>
         )}
       </div>
-      {/* Add/Edit Farm Dialog */}
+
+      {/* Add Farm Dialog */}
       {showAddDialog && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/50 backdrop-blur-sm">
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 w-[90%] max-w-md">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-semibold text-green-700 dark:text-green-300">
-                {editingFarm ? 'Edit Farm' : 'Add New Farm'}
-              </h2>
-              <button onClick={() => setShowAddDialog(false)} className="text-gray-500 hover:text-gray-700 dark:hover:text-white">
+              <h2 className="text-lg font-semibold text-green-700 dark:text-green-300">Add New Farm</h2>
+              <button
+                onClick={() => setShowAddDialog(false)}
+                className="text-gray-500 hover:text-gray-700 dark:hover:text-white"
+              >
                 <FiX className="w-5 h-5" />
               </button>
             </div>
@@ -201,7 +163,7 @@ const MyFarms = () => {
                 onClick={handleSaveFarm}
                 className="px-4 py-2 text-sm rounded-md bg-green-600 hover:bg-green-700 text-white"
               >
-                {editingFarm ? 'Save Changes' : 'Add Farm'}
+                Add Farm
               </button>
             </div>
           </div>

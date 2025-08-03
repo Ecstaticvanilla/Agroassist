@@ -5,6 +5,7 @@ import Irrigation from './pages/Irrigation';
 import Welcome from './pages/Welcome';
 import Dashboard from './pages/Dashboard';
 import MyFarms from './pages/MyFarms';
+import FarmDetails from './pages/FarmDetails';
 
 const App = () => {
   return (
@@ -18,46 +19,10 @@ const App = () => {
         <Route path="/myfarms" element={<MyFarms />} />
         <Route path="/" element={<Welcome />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/farms/:id" element={<FarmDetails />} />
       </Routes>
     </Router>
   );
 };
 
 export default App;
-
-
-// import React from 'react';
-// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import Navbar from './components/Navbar';
-// import Sidebar from './components/Sidebar';
-// import Home from './pages/Home';
-// import Weather from './pages/Weather';
-// import Irrigation from './pages/Irrigation';
-// import Updates from './pages/Updates';
-
-// const App = () => {
-//   return (
-//     <Router>
-//       <div className="flex h-screen">
-//         {/* Sidebar */}
-//         <Sidebar />
-//         <div className="flex-1 flex flex-col">
-//           {/* Navbar */}
-//           <Navbar />
-          
-//           {/* Main content */}
-//           <div className="flex-1 p-6">
-//             <Routes>
-//               <Route path="/" element={<Home />} />
-//               <Route path="/weather" element={<Weather />} />
-//               <Route path="/irrigation" element={<Irrigation />} />
-//               <Route path="/updates" element={<Updates />} />
-//             </Routes>
-//           </div>
-//         </div>
-//       </div>
-//     </Router>
-//   );
-// };
-
-// export default App;
