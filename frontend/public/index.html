@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AgroAssist: Smart farming dashboard for better crop and irrigation management">
+  <title>AgroAssist - Smart Farming Dashboard</title>
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  
+  <!-- Tailwind CSS will be injected here -->
+  <link href="/static/css/main.css" rel="stylesheet">
+  
+  <!-- Add any external fonts or icons if needed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Maiden+Orange&family=Outfit:wght@100..900&family=Revalia&display=swap" rel="stylesheet">
+
+  <!-- Meta tags for SEO and Open Graph -->
+  <meta property="og:title" content="AgroAssist - Smart Farming Dashboard" />
+  <meta property="og:description" content="AgroAssist helps farmers manage weather forecasts, irrigation systems, and new updates." />
+  <meta property="og:image" content="%PUBLIC_URL%/favicon.ico" />
+  <meta property="og:url" content="https://your-domain.com" />
+  <script>
+  if (
+    localStorage.getItem('theme') === 'dark' ||
+    (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)
+  ) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+</script>
+
+</head>
+
+<body class="bg-gray-50 font-roboto text-gray-900">
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+
+  <!-- React will inject the JavaScript bundle here -->
+  <script src="%PUBLIC_URL%/static/js/bundle.js"></script>
+</body>
+
+</html>
