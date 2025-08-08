@@ -3,7 +3,7 @@ Farmer Helper
 
 
 Rough Struc:
-
+```
 Agroassist
 |
 |
@@ -35,6 +35,7 @@ Agroassist
 |
 |- gitignore and readme
 
+```
 Apne files and features aise daalo ki baaki can also put accordingly. try to keep everything modular and sorted. chahiye to gpt pe dekh lo dir struc for react + flask + python site 
 
 always put venv, node_modules and pycache jaise dirs in gitignore.
