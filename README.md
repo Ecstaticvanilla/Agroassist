@@ -10,23 +10,29 @@ Agroassist
 |- backend
 |    |
 |    |- all core files (like main.py etc.) 
+│    ├── app/
+│    │   ├── __init__.py       ← App factory, blueprint registration
+|    |   |
+│    │   ├── routes/           ← apna API endpoints
+│    │   │   ├── __init__.py
+│    │   │   └── sample.py
+|    |   |
+│    │   ├── services/         ← all the diff modules (i.e the indiv services ya features) we implement.. 
+│    │   │   └── predictor.py
+|    |   |
+|    |   |- data
+|    |   |    |
+|    |   |    | - all the data files needed..
+|    |   |
+|    |   |- tests
+|    |   |   |
+|    |   |   | - all testing files (files that act as main.py / app.py for ur resp modules ya services).
+|    |   |
+|    |   |
+│    │   ├── models/           ← Data models (if needed)
+│    │   └── utils/            ← Helper functions/utilities
 |    |
-|    |- data
-|    |    |
-|    |    |- all the data files needed..
-|    |
-|    |- models
-|    |    |
-|    |    |- any model files if used
-|    |
-|    |- modules
-|    |    |
-|    |    |- all the diff modules (i.e the indiv services ya features) we implement.. 
-|    |
-|    |   
-|    |- tests
-|         |
-|         |- all testing files (files that act as main.py / app.py for ur resp modules ya services).
+│    └── main.py               ← App entry point (can stay flat)
 |
 |
 |- frontend
